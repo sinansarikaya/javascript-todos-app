@@ -1,0 +1,189 @@
+:root {
+  --dark: #2c3333;
+  --green: #395b64;
+  --light-green: #a5c9ca;
+  --white: #e7f6f2;
+  --yellow: hsl(35, 78%, 66%);
+  --yellow-hover: hsl(35, 78%, 46%);
+  --red: hsl(0, 83%, 70%);
+  --red-hover: hsl(0, 83%, 60%);
+  --soft-green: hsl(149, 83%, 60%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans Mono", monospace;
+}
+#logoContainer {
+  position: absolute;
+  width: 220px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  background-color: var(--light-green);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#logoContainer .logo {
+  width: 90%;
+}
+#leftSide {
+  width: 50%;
+  height: 100vh;
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 2rem 2rem 2rem;
+  gap: 1rem;
+}
+#leftSide .title {
+  color: var(--yellow);
+}
+#leftSide .add-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+#leftSide .add-container .input-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#leftSide .add-container .input-container .todo-input {
+  height: 3rem;
+  width: 100%;
+  padding: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border: 0;
+  background-color: var(--light-green);
+  color: var(--green);
+  outline: none;
+}
+#leftSide .add-container .input-container .todo-input::placeholder {
+  color: var(--green);
+}
+#leftSide .add-container .input-container .priority {
+  border: 0;
+  outline: none;
+  background-color: var(--green);
+  color: var(--light-green);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 1rem;
+}
+#leftSide .add-container .submitBtn {
+  background-color: var(--yellow);
+  color: var(--white);
+  border: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 900;
+  transition: background-color 0.5s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#leftSide .add-container .submitBtn:hover {
+  background-color: var(--yellow-hover);
+  cursor: pointer;
+}
+#leftSide .todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+#leftSide .todo-list .date {
+  color: var(--light-green);
+  font-size: 0.8rem;
+}
+#leftSide .todo-list .row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+#leftSide .todo-list .row .todos {
+  width: calc(100% - 2rem);
+  background-color: var(--light-green);
+  color: var(--green);
+  height: 3rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 0.5rem;
+}
+#leftSide .todo-list .circle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+#leftSide .todo-list .circle.heigh {
+  background-color: var(--red);
+}
+#leftSide .todo-list .circle.middle {
+  background-color: var(--yellow);
+}
+#leftSide .todo-list .circle.low {
+  background-color: var(--soft-green);
+}
+#leftSide .todo-list .fa-xmark {
+  margin-left: auto;
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+  border-radius: 0.2rem;
+}
+#leftSide .todo-list .todos .fa-xmark:hover {
+  background-color: var(--red-hover);
+}
+#rightSide {
+  width: 50%;
+  height: 100vh;
+  background-color: var(--green);
+}
+footer {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  background-color: var(--white);
+  color: var(--dark);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  box-shadow: hsla(206, 6%, 25%, 0.3) 0px -1px 2px 0px,
+    hsla(206, 6%, 25%, 0.15) 0px -2px 6px 2px;
+  z-index: 1;
+}
+footer .heart {
+  color: hsl(0, 71%, 61%);
+}
+footer a {
+  color: var(--secondary);
+  transition: color 0.5s;
+}
+footer a:hover {
+  color: var(--secondary-hover);
+}
