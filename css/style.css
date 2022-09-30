@@ -103,23 +103,23 @@ body {
   background-color: var(--yellow-hover);
   cursor: pointer;
 }
-#leftSide .todo-list {
+.todo-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
 }
-#leftSide .todo-list .date {
+.todo-list .date {
   color: var(--light-green);
   font-size: 0.8rem;
 }
-#leftSide .todo-list .row {
+.todo-list .row {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
 }
-#leftSide .todo-list .row .todos {
+.todo-list .row .todos {
   width: calc(100% - 2rem);
   background-color: var(--light-green);
   color: var(--green);
@@ -131,21 +131,21 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 0.5rem;
 }
-#leftSide .todo-list .circle {
+.todo-list .circle {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
 }
-#leftSide .todo-list .circle.high {
+.todo-list .circle.high {
   background-color: var(--red);
 }
-#leftSide .todo-list .circle.middle {
+.todo-list .circle.middle {
   background-color: var(--yellow);
 }
-#leftSide .todo-list .circle.low {
+.todo-list .circle.low {
   background-color: var(--soft-green);
 }
-#leftSide .todo-list .fa-xmark {
+.todo-list .fa-xmark {
   margin-left: auto;
   background-color: var(--red);
   color: var(--white);
@@ -154,13 +154,18 @@ body {
   transition: background-color 0.5s ease-in-out;
   border-radius: 0.2rem;
 }
-#leftSide .todo-list .todos .fa-xmark:hover {
+.todo-list .todos .fa-xmark:hover {
   background-color: var(--red-hover);
 }
 #rightSide {
   width: 50%;
   height: 100vh;
   background-color: var(--green);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 13.1rem 2rem 2rem 2rem;
+  gap: 1rem;
 }
 footer {
   width: 100%;
@@ -168,6 +173,7 @@ footer {
   position: absolute;
   display: flex;
   bottom: 0;
+  left: 0;
   background-color: var(--white);
   color: var(--dark);
   justify-content: center;

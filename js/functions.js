@@ -1,11 +1,12 @@
 const leftSide = document.querySelector("#leftSide");
+const rightSide = document.querySelector("#rightSide");
 
 export const createListElement = (newTodo) => {
   const { id, completed, text, priority } = newTodo;
 
   const todoList = document.createElement("div");
   todoList.className = "todo-list";
-  leftSide.appendChild(todoList);
+  completed ? rightSide.appendChild(todoList) : leftSide.appendChild(todoList);
 
   const getDate = new Date().toLocaleDateString();
   const date = document.createElement("div");
@@ -23,7 +24,9 @@ export const createListElement = (newTodo) => {
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
+  completed && checkbox.setAttribute("checked", "checked");
   checkbox.setAttribute("value", text);
+  checkbox.className = "todoItem";
   checkbox.id = id;
   todos.appendChild(checkbox);
 
