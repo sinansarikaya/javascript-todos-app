@@ -49,6 +49,7 @@ body {
   text-align: center;
   padding: 8rem 2rem 2rem 2rem;
   gap: 1rem;
+  overflow: auto;
 }
 #leftSide .title {
   color: var(--yellow);
@@ -166,6 +167,13 @@ body {
   text-align: center;
   padding: 13.1rem 2rem 2rem 2rem;
   gap: 1rem;
+  overflow: auto;
+}
+#rightSide .title {
+  color: var(--yellow);
+}
+#rightSide .todo-list .row .todos label {
+  text-decoration: line-through;
 }
 footer {
   width: 100%;
