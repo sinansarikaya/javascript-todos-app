@@ -97,6 +97,7 @@ body {
   font-weight: 900;
   transition: background-color 0.5s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-left: 1rem;
 }
 #leftSide .add-container .submitBtn:hover {
   background-color: var(--yellow-hover);
@@ -135,7 +136,7 @@ body {
   height: 1rem;
   border-radius: 50%;
 }
-#leftSide .todo-list .circle.heigh {
+#leftSide .todo-list .circle.high {
   background-color: var(--red);
 }
 #leftSide .todo-list .circle.middle {

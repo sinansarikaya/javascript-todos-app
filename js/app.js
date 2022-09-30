@@ -6,7 +6,12 @@ const addBtn = document.querySelector(".submitBtn");
 
 inputContainer.addEventListener("submit", (e) => {
   e.preventDefault();
-  //   console.log(todoInput.value, prioritySelectBox.value);
+
+  if (!todoInput.value || prioritySelectBox.value == "Priority") {
+    console.log("Bos");
+    return;
+  }
+
   const todoList = document.createElement("div");
   todoList.className = "todo-list";
   leftSide.appendChild(todoList);
@@ -36,8 +41,14 @@ inputContainer.addEventListener("submit", (e) => {
   todoLabel.innerText = todoInput.value;
   todos.appendChild(todoLabel);
 
-  //
-  //   const faXmark = document.createElement("i");
+  const faXmark = document.createElement("i");
+  faXmark.className = "fa-solid fa-xmark";
+  todos.appendChild(faXmark);
+
+  const circle = document.createElement("div");
+  circle.className = `circle ${prioritySelectBox.value}`;
+  row.appendChild(circle);
+
   //   const circle = document.createElement("div");
 
   todoInput.value = "";
