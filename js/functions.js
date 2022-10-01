@@ -1,5 +1,5 @@
-const leftSide = document.querySelector("#leftSide");
-const rightSide = document.querySelector("#rightSide");
+const leftSide = document.querySelector("#leftSide .list");
+const rightSide = document.querySelector("#rightSide .list");
 
 export const createListElement = (newTodo) => {
   const { id, completed, text, priority } = newTodo;

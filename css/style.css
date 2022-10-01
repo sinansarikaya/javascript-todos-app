@@ -19,7 +19,6 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-family: "Noto Sans Mono", monospace;
 }
 #logoContainer {
@@ -37,19 +36,23 @@ body {
   border-bottom-right-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+header {
+  height: 20vh;
+}
 #logoContainer .logo {
   width: 90%;
 }
 #leftSide {
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - 40px);
   background-color: var(--dark);
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 8rem 2rem 2rem 2rem;
+  padding: 2rem;
   gap: 1rem;
   overflow: auto;
+  justify-content: space-between;
 }
 #leftSide .title {
   color: var(--yellow);
@@ -58,7 +61,8 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 auto 0;
+  width: calc(100% - 110px);
 }
 #leftSide .add-container .input-container {
   display: flex;
@@ -104,11 +108,16 @@ body {
   background-color: var(--yellow-hover);
   cursor: pointer;
 }
+.list {
+  margin: 0 0 auto 0;
+  height: 80vh;
+}
 .todo-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
+  margin: auto 0;
 }
 .todo-list .date {
   color: var(--light-green);
@@ -160,12 +169,13 @@ body {
 }
 #rightSide {
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - 40px);
   background-color: var(--green);
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 13.1rem 2rem 2rem 2rem;
+  justify-content: space-between;
+  padding: 2rem;
   gap: 1rem;
   overflow: auto;
 }
