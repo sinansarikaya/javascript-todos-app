@@ -7,6 +7,7 @@ const box = document.querySelector(".box");
 const editItem = document.querySelector(".editItem");
 const closeBox = document.querySelector(".box .fa-xmark");
 const delFilter = document.querySelector(".filter");
+const todoItem = document.querySelectorAll(".todo-list");
 
 let todoArray = JSON.parse(localStorage.getItem("TODOS")) || [];
 
@@ -80,7 +81,7 @@ window.addEventListener("click", (e) => {
     clearFunc(todoArray);
   }
   //! Delet Item
-  else if (e.target.className === "fa-solid fa-xmark") {
+  else if (e.target.className === "fa-solid fa-xmark deleteItem") {
     id = e.target.previousSibling.previousSibling.getAttribute("for");
 
     let todoCheck = todoArray.filter((todo) => todo.id === Number(id));
@@ -95,8 +96,7 @@ window.addEventListener("click", (e) => {
 
     let todoCheck = todoArray.filter((todo) => todo.id === Number(id));
 
-    e.target.classList.remove("fa-regular", "fa-pen-to-square");
-    e.target.classList.add("fa-solid", "fa-check");
+    closeBox.setAttribute("id", id);
 
     box.classList.add("active");
     delFilter.classList.add("active");
@@ -110,8 +110,8 @@ window.addEventListener("click", (e) => {
       clearFunc(todoArray);
       box.classList.remove("active");
       delFilter.classList.remove("active");
-      e.target.classList.remove("fa-solid", "fa-check");
-      e.target.classList.add("fa-regular", "fa-pen-to-square");
+
+      closeBox.removeAttribute("id");
     });
   }
 });

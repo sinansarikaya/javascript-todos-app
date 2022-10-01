@@ -60,7 +60,7 @@ export const createListElement = (newTodo) => {
   todos.appendChild(faPen);
 
   const faXmark = document.createElement("i");
-  faXmark.className = "fa-solid fa-xmark";
+  faXmark.className = "fa-solid fa-xmark deleteItem";
   todos.appendChild(faXmark);
 
   const circle = document.createElement("div");
