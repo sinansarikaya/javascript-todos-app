@@ -1,11 +1,23 @@
 const leftSide = document.querySelector("#leftSide .list");
 const rightSide = document.querySelector("#rightSide .list");
+const alertDomLeft = document.querySelector(".alert-left .alert");
+const alertDomRight = document.querySelector(".alert-right .alert");
 
-export const alert = (status) => {
+export const alert = (status, type, msg) => {
   if (status) {
-    console.log("right");
+    alertDomRight.style.left = "0";
+    alertDomRight.style.backgroundColor = `var(--${type})`;
+    alertDomRight.innerText = msg;
+    setTimeout(() => {
+      alertDomRight.style.left = "-110%";
+    }, 2000);
   } else {
-    console.log("left");
+    alertDomLeft.style.right = "0";
+    alertDomLeft.style.backgroundColor = `var(--${type})`;
+    alertDomLeft.innerText = msg;
+    setTimeout(() => {
+      alertDomLeft.style.right = "-110%";
+    }, 2000);
   }
 };
 

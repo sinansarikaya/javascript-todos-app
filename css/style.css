@@ -8,7 +8,11 @@
   --red: hsl(0, 83%, 70%);
   --red-hover: hsl(0, 83%, 60%);
   --soft-green: hsl(149, 83%, 60%);
+  --danger: hsl(354, 70%, 64%);
+  --warning: hsl(45, 100%, 61%);
+  --success: hsl(152, 69%, 41%);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,7 +32,20 @@ body {
   top: 1rem;
   left: 50%;
   transform: translate(calc(-100% - 110px));
-  background-color: red;
+  overflow: hidden;
+}
+.alert {
+  position: absolute;
+  width: 400px;
+  height: 50px;
+  transition: right 0.5s ease-in-out, left 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+.alert-left .alert {
+  right: -110%;
 }
 .alert-right {
   width: 400px;
@@ -37,7 +54,11 @@ body {
   top: 1rem;
   right: 50%;
   transform: translate(calc(100% + 110px));
-  background-color: blue;
+  overflow: hidden;
+}
+.alert-right .alert {
+  background-color: palegoldenrod;
+  left: -110%;
 }
 #logoContainer {
   position: absolute;
