@@ -1,6 +1,14 @@
 const leftSide = document.querySelector("#leftSide .list");
 const rightSide = document.querySelector("#rightSide .list");
 
+export const alert = (status) => {
+  if (status) {
+    console.log("right");
+  } else {
+    console.log("left");
+  }
+};
+
 export const createListElement = (newTodo) => {
   const { id, completed, text, priority } = newTodo;
 

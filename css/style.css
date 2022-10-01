@@ -21,6 +21,24 @@ body {
   justify-content: center;
   font-family: "Noto Sans Mono", monospace;
 }
+.alert-left {
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(calc(-100% - 110px));
+  background-color: red;
+}
+.alert-right {
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  top: 1rem;
+  right: 50%;
+  transform: translate(calc(100% + 110px));
+  background-color: blue;
+}
 #logoContainer {
   position: absolute;
   width: 220px;
@@ -35,6 +53,7 @@ body {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 2;
 }
 header {
   height: 20vh;
@@ -206,9 +225,9 @@ footer .heart {
   color: hsl(0, 71%, 61%);
 }
 footer a {
-  color: var(--secondary);
+  color: var(--dark);
   transition: color 0.5s;
 }
 footer a:hover {
-  color: var(--secondary-hover);
+  color: var(--green);
 }

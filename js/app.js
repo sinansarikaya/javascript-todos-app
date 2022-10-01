@@ -1,7 +1,7 @@
-import { createListElement } from "./functions.js";
+import { createListElement, alert } from "./functions.js";
 
 const rightSide = document.querySelector("#rightSide");
-const leftSide = document.querySelector("#leftSide");
+const list = document.querySelector(".list");
 const inputContainer = document.querySelector(".input-container");
 const todoInput = document.querySelector(".todo-input");
 const prioritySelectBox = document.querySelector(".priority");
@@ -20,7 +20,7 @@ inputContainer.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!todoInput.value || prioritySelectBox.value == "Priority") {
-    console.log("Bos");
+    alert(true);
     return;
   }
   if (todoInput.value.trim() === "") {
@@ -42,26 +42,24 @@ inputContainer.addEventListener("submit", (e) => {
 });
 
 window.addEventListener("click", (e) => {
-  const id = e.target.parentElement.querySelector("label").getAttribute("for");
-  if (e.target.className === "fa-solid fa-xmark") {
-    e.target.parentElement.parentElement.parentElement.remove();
-
-    todoArray = todoArray.filter((todo) => todo.id !== Number(id));
-    localStorage.setItem("TODOS", JSON.stringify(todoArray));
-  } else if (e.target.classList.contains("todoItem")) {
+  let id = e.target.getAttribute("id");
+  if (e.target.className === "todoItem") {
     todoArray.map((todo, i) => {
       if (todo.id == id) {
         todoArray[i].completed = !todoArray[i].completed;
       }
     });
-    localStorage.setItem("TODOS", JSON.stringify(todoArray));
-    const todoList = document.querySelectorAll(".todo-list");
-    todoList.forEach((element) => {
-      element.remove();
-    });
-
-    renderSavedTodos();
+  } else if (e.target.className === "fa-solid fa-xmark") {
+    id = e.target.previousSibling.getAttribute("for");
+    todoArray = todoArray.filter((todo) => todo.id !== Number(id));
   }
+
+  localStorage.setItem("TODOS", JSON.stringify(todoArray));
+  const todoList = document.querySelectorAll(".todo-list");
+  todoList.forEach((element) => {
+    element.remove();
+  });
+  renderSavedTodos();
 });
 
 window.onload = function () {
