@@ -26,19 +26,20 @@ body {
   justify-content: center;
   font-family: "Noto Sans Mono", monospace;
 }
+.alert,
+.alert-right,
 .alert-left {
-  width: 400px;
+  width: 25rem;
   height: 50px;
   position: absolute;
+}
+.alert-left {
   top: 1rem;
   left: 50%;
   transform: translate(calc(-100% - 110px));
   overflow: hidden;
 }
 .alert {
-  position: absolute;
-  width: 400px;
-  height: 50px;
   transition: right 0.5s ease-in-out, left 0.5s ease-in-out;
   display: flex;
   justify-content: center;
@@ -49,16 +50,12 @@ body {
   right: -110%;
 }
 .alert-right {
-  width: 400px;
-  height: 50px;
-  position: absolute;
   top: 1rem;
   right: 50%;
   transform: translate(calc(100% + 110px));
   overflow: hidden;
 }
 .alert-right .alert {
-  background-color: palegoldenrod;
   left: -110%;
 }
 .filter.active {
@@ -164,7 +161,6 @@ header {
   text-align: center;
   padding: 2rem;
   gap: 1rem;
-  overflow: auto;
   justify-content: space-between;
 }
 #leftSide .title {
@@ -338,4 +334,66 @@ footer a {
 }
 footer a:hover {
   color: var(--green);
+}
+@media (max-width: 1090px) {
+  html {
+    font-size: 14px;
+  }
+  .alert,
+  .alert-right,
+  .alert-left {
+    width: 20rem;
+    height: 50px;
+    position: absolute;
+  }
+}
+@media (max-width: 900px) {
+  body {
+    height: auto;
+    flex-direction: column;
+  }
+  .alert,
+  .alert-right,
+  .alert-left {
+    position: fixed;
+  }
+  #leftSide .add-container {
+    width: 100%;
+  }
+  #leftSide {
+    padding: 180px 4rem 4rem 4rem;
+    width: 100%;
+    height: auto;
+    overflow: none;
+  }
+  #rightSide {
+    padding: 4rem 4rem 5rem 4rem;
+    width: 100%;
+    height: auto;
+    overflow: none;
+  }
+  #rightSide header {
+    height: 5vh;
+  }
+  #leftSide .add-container .input-container .priority {
+    padding: 0.5rem;
+  }
+  .list {
+    height: 100%;
+    overflow: auto;
+  }
+  footer {
+    position: fixed;
+  }
+}
+@media (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+  #leftSide {
+    padding: 180px 1rem 3rem 1rem;
+  }
+  #rightSide {
+    padding: 1rem 1rem 5rem 1rem;
+  }
 }
