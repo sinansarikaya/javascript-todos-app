@@ -55,6 +55,10 @@ export const createListElement = (newTodo) => {
   todoLabel.innerText = text;
   todos.appendChild(todoLabel);
 
+  const faPen = document.createElement("i");
+  faPen.className = "fa-regular fa-pen-to-square";
+  todos.appendChild(faPen);
+
   const faXmark = document.createElement("i");
   faXmark.className = "fa-solid fa-xmark";
   todos.appendChild(faXmark);

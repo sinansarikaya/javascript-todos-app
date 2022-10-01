@@ -29,17 +29,22 @@
     <title>Todo List</title>
   </head>
   <body>
+    <div class="filter"></div>
     <div id="logoContainer">
       <img src="./img/logo.png" alt="logo" class="logo" />
     </div>
     <div class="alert-left">
-      <div class="alert">
-      </div>
+      <div class="alert"></div>
     </div>
     <div class="alert-right">
-      <div class="alert">
-      </div>
+      <div class="alert"></div>
     </div>
+    <form class="box">
+      <i class="fa-solid fa-xmark"></i>
+      <h2 class="title">Edit</h2>
+      <input type="text" class="editItem" />
+      <input type="submit" class="editSubmit" value="Save" />
+    </form>
     <div id="leftSide">
       <header>
         <h1 class="title">Todo List</h1>
@@ -69,11 +74,12 @@
                 value="I will buy a bike"
               />
               <label for="1" class="todoItem"> I will buy a bike</label>
+              <i class="fa-regular fa-pen-to-square"></i>
               <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="circle high"></div>
-          </div> -->
-        </div>
+          </div>
+        </div> -->
       </div>
     </div>
     <div id="rightSide">

@@ -11,6 +11,7 @@
   --danger: hsl(354, 70%, 64%);
   --warning: hsl(45, 100%, 61%);
   --success: hsl(152, 69%, 41%);
+  --success-hover: hsl(152, 69%, 31%);
 }
 
 * {
@@ -59,6 +60,78 @@ body {
 .alert-right .alert {
   background-color: palegoldenrod;
   left: -110%;
+}
+.filter.active {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.box {
+  width: 350px;
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--yellow);
+  color: var(--white);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+  padding-bottom: 2rem;
+  z-index: 3;
+}
+.box.active {
+  visibility: visible;
+  opacity: 1;
+}
+.box .fa-xmark {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.5s ease-in-out;
+}
+.box .fa-xmark:hover {
+  color: hsl(0, 0%, 85%);
+}
+.box .title {
+  margin: 3rem 0 auto 0;
+}
+.box .editItem {
+  width: 90%;
+  padding: 1rem;
+  border: 0;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: var(--green);
+}
+.box .editSubmit {
+  width: 90%;
+  padding: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 0;
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: var(--green);
+  color: var(--light-green);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+.box .editSubmit:hover {
+  background-color: hsl(193, 27%, 41%);
 }
 #logoContainer {
   position: absolute;
@@ -195,14 +268,27 @@ header {
 .todo-list .circle.low {
   background-color: var(--soft-green);
 }
+.todo-list .fa-check,
+.todo-list .fa-pen-to-square,
 .todo-list .fa-xmark {
-  margin-left: auto;
-  background-color: var(--red);
   color: var(--white);
   padding: 0.5rem;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   border-radius: 0.2rem;
+}
+.todo-list .fa-xmark {
+  background-color: var(--red);
+}
+.todo-list .fa-check,
+.todo-list .fa-pen-to-square {
+  margin-left: auto;
+  background-color: var(--success);
+}
+.todo-list .fa-check,
+.todo-list .fa-pen-to-square:hover {
+  margin-left: auto;
+  background-color: var(--success-hover);
 }
 .todo-list .todos .fa-xmark:hover {
   background-color: var(--red-hover);
