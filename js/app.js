@@ -110,6 +110,8 @@ window.addEventListener("click", (e) => {
       clearFunc(todoArray);
       box.classList.remove("active");
       delFilter.classList.remove("active");
+      e.target.classList.remove("fa-solid", "fa-check");
+      e.target.classList.add("fa-regular", "fa-pen-to-square");
     });
   }
 });

@@ -235,6 +235,7 @@ header {
 .todo-list .date {
   color: var(--light-green);
   font-size: 0.8rem;
+  margin-top: 1rem;
 }
 .todo-list .row {
   display: flex;
