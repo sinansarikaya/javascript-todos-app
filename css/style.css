@@ -180,7 +180,6 @@ header {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #leftSide .add-container .input-container .todo-input {
-  height: 3rem;
   width: 100%;
   padding: 1rem;
   border-top-left-radius: 0.5rem;
@@ -324,6 +323,7 @@ footer {
   box-shadow: hsla(206, 6%, 25%, 0.3) 0px -1px 2px 0px,
     hsla(206, 6%, 25%, 0.15) 0px -2px 6px 2px;
   z-index: 1;
+  font-size: 1rem;
 }
 footer .heart {
   color: hsl(0, 71%, 61%);
@@ -343,7 +343,6 @@ footer a:hover {
   .alert-right,
   .alert-left {
     width: 20rem;
-    height: 50px;
     position: absolute;
   }
 }
@@ -356,6 +355,19 @@ footer a:hover {
   .alert-right,
   .alert-left {
     position: fixed;
+    z-index: 3;
+  }
+  .alert-left {
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+  }
+  .alert-right {
+    top: 1rem;
+    right: 50%;
+    transform: translate(50%);
+    overflow: hidden;
   }
   #leftSide .add-container {
     width: 100%;
@@ -378,6 +390,16 @@ footer a:hover {
   #leftSide .add-container .input-container .priority {
     padding: 0.5rem;
   }
+  #logoContainer {
+    width: 150px;
+    height: 120px;
+  }
+  header {
+    height: 20vh;
+  }
+  #logoContainer .logo {
+    width: 90%;
+  }
   .list {
     height: 100%;
     overflow: auto;
@@ -388,12 +410,16 @@ footer a:hover {
 }
 @media (max-width: 360px) {
   html {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  #logoContainer {
+    width: 130px;
+    height: 100px;
   }
   #leftSide {
-    padding: 180px 1rem 3rem 1rem;
+    padding: 180px 2rem 3rem 2rem;
   }
   #rightSide {
-    padding: 1rem 1rem 5rem 1rem;
+    padding: 0rem 2rem 5rem 2rem;
   }
 }
