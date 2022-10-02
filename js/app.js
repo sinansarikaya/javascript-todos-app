@@ -11,6 +11,8 @@ const todoItem = document.querySelectorAll(".todo-list");
 
 let todoArray = JSON.parse(localStorage.getItem("TODOS")) || [];
 
+let filtered;
+
 const renderSavedTodos = () => {
   todoArray.forEach((todo) => {
     createListElement(todo);
@@ -109,27 +111,21 @@ window.addEventListener("click", (e) => {
         i++;
       }
     }
-    let filtered = Array.from(
+    filtered = Array.from(
       filter(todoArray, (todo) => todo.id === Number(id), 1)
     );
 
     box.classList.add("active");
     delFilter.classList.add("active");
     editItem.value = filtered[0].text;
-
-    box.addEventListener("submit", (e) => {
-      // e.preventDefault();
-      filtered[0].text = editItem.value;
-      todoArray = todoArray.filter((todo) => todo);
-
-      console.log(filtered[0].completed);
-
-      alert(filtered[0].completed, "success", "Item updated.");
-
-      box.classList.remove("active");
-      delFilter.classList.remove("active");
-      clearFunc(todoArray);
-    });
+  } else if (e.target.className === "editSubmit") {
+    filtered[0].text = editItem.value;
+    todoArray = todoArray.filter((todo) => todo);
+    console.log(filtered[0].completed);
+    box.classList.remove("active");
+    delFilter.classList.remove("active");
+    clearFunc(todoArray);
+    alert(filtered[0].completed, "success", "Item updated.");
   }
 });
 
