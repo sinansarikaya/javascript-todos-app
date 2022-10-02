@@ -93,25 +93,42 @@ window.addEventListener("click", (e) => {
   //! Edit Item
   else if (e.target.className === "fa-regular fa-pen-to-square") {
     id = e.target.previousSibling.getAttribute("for");
+    console.log(id);
 
-    let todoCheck = todoArray.filter((todo) => todo.id === Number(id));
-
-    closeBox.setAttribute("id", id);
+    function* filter(array, condition, maxSize) {
+      if (!maxSize || maxSize > array.length) {
+        maxSize = array.length;
+      }
+      let count = 0;
+      let i = 0;
+      while (count < maxSize && i < array.length) {
+        if (condition(array[i])) {
+          yield array[i];
+          count++;
+        }
+        i++;
+      }
+    }
+    let filtered = Array.from(
+      filter(todoArray, (todo) => todo.id === Number(id), 1)
+    );
 
     box.classList.add("active");
     delFilter.classList.add("active");
-    editItem.value = todoCheck[0].text;
+    editItem.value = filtered[0].text;
 
     box.addEventListener("submit", (e) => {
-      e.preventDefault();
-      todoCheck[0].text = editItem.value;
+      // e.preventDefault();
+      filtered[0].text = editItem.value;
       todoArray = todoArray.filter((todo) => todo);
 
-      clearFunc(todoArray);
+      console.log(filtered[0].completed);
+
+      alert(filtered[0].completed, "success", "Item updated.");
+
       box.classList.remove("active");
       delFilter.classList.remove("active");
-
-      closeBox.removeAttribute("id");
+      clearFunc(todoArray);
     });
   }
 });
