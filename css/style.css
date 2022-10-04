@@ -3,17 +3,16 @@
   --green: #395b64;
   --light-green: #a5c9ca;
   --white: #e7f6f2;
-  --yellow: hsl(35, 78%, 66%);
+  --yellow: rgb(236, 180, 101);
   --yellow-hover: hsl(35, 78%, 46%);
   --red: hsl(0, 83%, 70%);
   --red-hover: hsl(0, 83%, 60%);
-  --soft-green: hsl(149, 83%, 60%);
+  --soft-green: rgb(68, 238, 150);
   --danger: hsl(354, 70%, 64%);
   --warning: hsl(45, 100%, 61%);
   --success: hsl(152, 69%, 41%);
   --success-hover: hsl(152, 69%, 31%);
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,6 +24,29 @@ body {
   display: flex;
   justify-content: center;
   font-family: "Noto Sans Mono", monospace;
+}
+.social {
+  position: absolute;
+  right: 0;
+  top: 3rem;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--yellow);
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  z-index: 2;
+}
+.social .fa-circle-question {
+  cursor: pointer;
+}
+.social a {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.7rem;
+  transition: color 0.5s;
+}
+.social a:hover {
+  color: var(--green);
 }
 .alert,
 .alert-right,
