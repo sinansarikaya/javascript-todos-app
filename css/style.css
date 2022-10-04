@@ -382,6 +382,7 @@ footer a:hover {
     padding: 4rem 4rem 5rem 4rem;
     width: 100%;
     height: auto;
+    min-height: 50vh;
     overflow: none;
   }
   #rightSide header {
