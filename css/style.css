@@ -307,6 +307,11 @@ header {
 #rightSide .todo-list .row .todos label {
   text-decoration: line-through;
 }
+.total {
+  color: var(--white);
+  text-align: right;
+  margin-top: 2rem;
+}
 footer {
   width: 100%;
   height: 40px;

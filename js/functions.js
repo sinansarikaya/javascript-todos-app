@@ -2,6 +2,8 @@ const leftSide = document.querySelector("#leftSide .list");
 const rightSide = document.querySelector("#rightSide .list");
 const alertDomLeft = document.querySelector(".alert-left .alert");
 const alertDomRight = document.querySelector(".alert-right .alert");
+const leftTotalTodos = document.querySelector("#leftSide .total");
+const rightTotalTodos = document.querySelector("#rightSide .total");
 
 export const alert = (status, type, msg) => {
   if (status) {
@@ -26,7 +28,7 @@ export const createListElement = (newTodo) => {
 
   const todoList = document.createElement("div");
   todoList.className = "todo-list";
-  completed ? rightSide.appendChild(todoList) : leftSide.appendChild(todoList);
+  completed ? rightSide.prepend(todoList) : leftSide.prepend(todoList);
 
   const getDate = new Date().toLocaleDateString();
   const date = document.createElement("div");
@@ -66,4 +68,12 @@ export const createListElement = (newTodo) => {
   const circle = document.createElement("div");
   circle.className = `circle ${priority}`;
   row.appendChild(circle);
+};
+
+export const todoCountFunc = (todoArray) => {
+  let totalTodosFalse = todoArray.filter((todo) => todo.completed === false);
+  let totalTodosTrue = todoArray.filter((todo) => todo.completed === true);
+
+  leftTotalTodos.innerText = `Available todos: ${totalTodosFalse.length}`;
+  rightTotalTodos.innerText = `Completed todos: ${totalTodosTrue.length}`;
 };

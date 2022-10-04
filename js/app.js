@@ -1,4 +1,4 @@
-import { createListElement, alert } from "./functions.js";
+import { createListElement, alert, todoCountFunc } from "./functions.js";
 
 const inputContainer = document.querySelector(".input-container");
 const todoInput = document.querySelector(".todo-input");
@@ -17,6 +17,7 @@ const renderSavedTodos = () => {
   todoArray.forEach((todo) => {
     createListElement(todo);
   });
+  todoCountFunc(todoArray);
 };
 
 renderSavedTodos();
