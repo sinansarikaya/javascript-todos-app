@@ -7,7 +7,6 @@ const box = document.querySelector(".box");
 const editItem = document.querySelector(".editItem");
 const closeBox = document.querySelector(".box .fa-xmark");
 const delFilter = document.querySelector(".filter");
-const todoItem = document.querySelectorAll(".todo-list");
 
 let todoArray = JSON.parse(localStorage.getItem("TODOS")) || [];
 
@@ -52,6 +51,7 @@ inputContainer.addEventListener("submit", (e) => {
     localStorage.setItem("TODOS", JSON.stringify(todoArray));
     alert(false, "success", "Item added successfully.");
     todoInput.value = "";
+    todoCountFunc(todoArray);
   }
 });
 
@@ -88,7 +88,6 @@ window.addEventListener("click", (e) => {
     id = e.target.previousSibling.previousSibling.getAttribute("for");
 
     let todoCheck = todoArray.filter((todo) => todo.id === Number(id));
-    console.log(todoCheck[0].completed);
     alert(todoCheck[0].completed, "warning", "Item deleted.");
     todoArray = todoArray.filter((todo) => todo.id !== Number(id));
     clearFunc(todoArray);
@@ -96,7 +95,6 @@ window.addEventListener("click", (e) => {
   //! Edit Item
   else if (e.target.className === "fa-regular fa-pen-to-square") {
     id = e.target.previousSibling.getAttribute("for");
-    console.log(id);
 
     function* filter(array, condition, maxSize) {
       if (!maxSize || maxSize > array.length) {
@@ -122,7 +120,6 @@ window.addEventListener("click", (e) => {
   } else if (e.target.className === "editSubmit") {
     filtered[0].text = editItem.value;
     todoArray = todoArray.filter((todo) => todo);
-    console.log(filtered[0].completed);
     box.classList.remove("active");
     delFilter.classList.remove("active");
     clearFunc(todoArray);
